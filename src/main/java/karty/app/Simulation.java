@@ -39,12 +39,14 @@ public class Simulation {
         for (Action initAction : initActions) {
             initAction.execute();
         }
+        renderer.print(map);
         int count = 0;
         while (count++ < moveCount) {
             nextTurn();
-            renderer.printMap(map);
+            renderer.print(map);
+            System.out.println("Ход: " + count);
             try {
-                Thread.sleep(1000);
+                Thread.sleep(250);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }

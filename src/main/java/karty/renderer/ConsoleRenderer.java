@@ -12,6 +12,21 @@ public class ConsoleRenderer implements Renderer {
     public final static String HERBIVORE_SPRITE = "\uD83D\uDC07";
     public final static String PREDATOR_SPRITE = "\uD83D\uDC3A";
 
+    private static final String CLEAR_SCREEN = "\033[H\033[2J";
+
+    @Override
+    public void print(GameMap map) {
+        System.out.print(CLEAR_SCREEN);
+        System.out.flush();
+        int grassCount = map.countEntities(Grass.class);
+        int herbivoreCount = map.countEntities(Herbivore.class);
+        int predatorCount = map.countEntities(Predator.class);
+        System.out.println("Трава: " + grassCount);
+        System.out.println("Травоядные: " + herbivoreCount);
+        System.out.println("Хищники: " + predatorCount);
+        printMap(map);
+    }
+
     @Override
     public void printMap(GameMap map) {
         for (int y = 1; y <= map.getM(); y++) {

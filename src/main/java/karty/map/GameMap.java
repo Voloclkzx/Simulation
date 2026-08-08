@@ -11,16 +11,19 @@ public class GameMap {
     private int n;
     private int m;
     private Map<Coordinates, Entity> entities;
+    private Map<Class<? extends Entity>, Integer> entitiesCount;
 
     public GameMap(int n, int m) {
         this.n = n;
         this.m = m;
         this.entities = new HashMap<>();
+        this.entitiesCount = new HashMap<>();
     }
 
     public void put(Coordinates coordinates, Entity entity) {
         if (isInside(coordinates) && isEmpty(coordinates)) {
             entities.put(coordinates, entity);
+            entitiesCount.merge(entity.getClass(), 1, Integer::sum);
         } else {
             throw new IllegalArgumentException("Эта клетка уже занята или находится за пределами карты");
         }
@@ -47,6 +50,7 @@ public class GameMap {
         }
         Entity entity = get(coordinates);
         entities.remove(coordinates);
+        entitiesCount.compute(entity.getClass(), (type, count) -> count == 1 ? null : count - 1);
         return entity;
     }
 
@@ -62,7 +66,7 @@ public class GameMap {
         }
 
         Entity entity = remove(from);
-        entities.put(to, entity);
+        put(to, entity);
     }
 
     public List<EntityPosition> getPositions() {
@@ -84,6 +88,13 @@ public class GameMap {
             }
         }
         return emptyCoordinates;
+    }
+
+    public int countEntities(Class<? extends Entity> type) {
+        return entitiesCount.entrySet().stream()
+                .filter(e -> type.isAssignableFrom(e.getKey()))
+                .mapToInt(Map.Entry::getValue)
+                .sum();
     }
 
 

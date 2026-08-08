@@ -11,9 +11,9 @@ public class Main {
         /*
         Добавить damage в Predator
          */
-        GameMap map = new GameMap(20, 20);
+        GameMap map = new GameMap(80, 25);
         Renderer renderer = new ConsoleRenderer();
-        Simulation simulation = new Simulation(map, renderer, 300);
+        Simulation simulation = new Simulation(map, renderer, 100000);
         simulation.startSimulation();
     }
 

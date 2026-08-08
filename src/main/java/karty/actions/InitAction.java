@@ -11,11 +11,11 @@ import java.util.List;
 import java.util.function.Supplier;
 
 public class InitAction implements Action {
-    private static final int GRASS_PROCENT = 35;
-    private static final int ROCK_PROCENT = 4;
-    private static final int TREE_PROCENT = 4;
-    private static final int HERBIVORE_PROCENT = 8;
-    private static final int PREDATOR_PROCENT = 1;
+    private static final int GRASS_PROCENT = 10;
+    private static final int ROCK_PROCENT = 5;
+    private static final int TREE_PROCENT = 5;
+    private static final int HERBIVORE_PROCENT = 7;
+    private static final int PREDATOR_PROCENT = 5;
 
     private GameMap map;
     private int countPlacedEntities = 0;

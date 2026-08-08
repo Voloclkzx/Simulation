@@ -15,10 +15,10 @@ public abstract class Creature extends Entity {
             {0, 1},
             {-1, 0},
             {0, -1},
-            {1, 1},
-            {-1, -1},
-            {1, -1},
-            {-1, 1},
+//            {1, 1},
+//            {-1, -1},
+//            {1, -1},
+//            {-1, 1},
     };
     protected int speed;
     protected int hp;
@@ -73,30 +73,44 @@ public abstract class Creature extends Entity {
     private void eat(GameMap map, Coordinates current, Predicate<Entity> foodTarget) {
         Optional<List<Coordinates>> pathOptional = PathFinder.findPath(map, current, foodTarget);
         if (pathOptional.isEmpty()) {
-            //TODO добавить метод, убежать от хищника
             return;
         }
         List<Coordinates> path = pathOptional.get();
         int steps = Math.min(speed, path.size());
         Coordinates destination = path.get(steps - 1);
 
-        Entity entityAtDestination = map.get(destination);
+        Entity target = map.get(destination);
 
-        if (entityAtDestination != null && foodTarget.test(entityAtDestination)) {
-            map.remove(destination);
-            restoreHp();
-            restoreEnergy();
+        if (target != null && foodTarget.test(target)) {
+            boolean destinationIsFree = consumeFood(map, destination, target);
+            if (destinationIsFree) {
+                map.move(current, destination);
+            }
+            return;
         }
-
         map.move(current, destination);
+
     }
 
-    private void restoreEnergy() {
+    protected boolean consumeFood(GameMap map, Coordinates coordinates, Entity target) {
+        map.remove(coordinates);
+        restoreHp();
+        restoreEnergy();
+        return true;
+    }
+
+    protected void restoreEnergy() {
         energy = Math.min(maxEnergy, energy + energyRestore);
     }
+    protected void restoreEnergy(int amount) {
+        energy = Math.min(maxEnergy, energy + amount);
+    }
 
-    private void restoreHp() {
+    protected void restoreHp() {
         hp = Math.min(maxHp, hp + hpRestore);
+    }
+    protected void restoreHp(int amount) {
+        hp = Math.min(maxHp, hp + amount);
     }
 
     private void startReproduction(GameMap map, Coordinates current, Predicate<Entity> mateTarget, Predicate<Entity> foodTarget, Supplier<? extends Creature> creatureFactory) {

@@ -14,10 +14,10 @@ public class PathFinder {
             {0, 1},
             {-1, 0},
             {0, -1},
-            {1, 1},
-            {-1, -1},
-            {1, -1},
-            {-1, 1},
+//            {1, 1},
+//            {-1, -1},
+//            {1, -1},
+//            {-1, 1},
     };
 
     public static Optional<List<Coordinates>> findPath(GameMap map, Coordinates start, Predicate<Entity> targetCondition) {
