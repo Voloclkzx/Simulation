@@ -5,7 +5,7 @@ import karty.map.Coordinates;
 import karty.map.GameMap;
 
 public class ConsoleRenderer implements Renderer {
-    public final static String EMPTY_SPRITE = "⬜";
+    public final static String EMPTY_SPRITE = "⬛";
     public final static String ROCK_SPRITE = "\uD83E\uDEA8";
     public final static String TREE_SPRITE = "\uD83C\uDF33";
     public final static String GRASS_SPRITE = "\uD83C\uDF3F";

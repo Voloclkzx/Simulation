@@ -11,7 +11,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class RestoreGrassAction implements Action {
-    private static final int MIN_GRASS_PROCENT = 30;
+    private static final int MIN_GRASS_PROCENT = 28;
     private static final int GRASS_GROWTH_PER_TURN_PROCENT = 2;
     private GameMap map;
 

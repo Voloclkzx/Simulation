@@ -9,10 +9,7 @@ public class Main {
     public static void main(String[] args) {
         //TODO
         /*
-        Если цели нет, то объекты стоят на месте
-        Нет спавна травы
-        Добавить на карту камни и деревья
-        Добавить систему голода
+        Добавить damage в Predator
          */
         GameMap map = new GameMap(20, 20);
         Renderer renderer = new ConsoleRenderer();

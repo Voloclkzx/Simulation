@@ -27,7 +27,7 @@ public class TurnAction implements Action {
                 continue;
             }
             if (entity instanceof Creature creature) {
-                creature.loseHp(1);
+                hunger(creature);
                 if (!creature.isAlive() && !map.isEmpty(entityPosition.coordinates())) {
                     map.remove(entityPosition.coordinates());
                     continue;
@@ -36,5 +36,9 @@ public class TurnAction implements Action {
 
             }
         }
+    }
+
+    private void hunger(Creature creature) {
+        creature.loseEnergy(1);
     }
 }

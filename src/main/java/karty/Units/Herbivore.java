@@ -1,45 +1,38 @@
 package karty.Units;
 
-import karty.Utils.PathFinder;
 import karty.map.Coordinates;
 import karty.map.GameMap;
 
-import java.util.List;
-import java.util.Optional;
-
 public class Herbivore extends Creature {
     private static final int SPEED = 2;
-    private static final int HP = 10;
-
-
+    private static final int HP = 12;
+    private static final int MAX_HP = 18;
+    private static final int HP_RESTORE = 3;
+    private static final int ENERGY = 8;
+    private static final int ENERGY_RESTORE = 5;
+    private static final int MAX_ENERGY = 20;
+    private static final int REPRODUCTION_THRESHOLD = 18;
+    private static final int REPRODUCTION_COST = 12;
 
 
     public Herbivore() {
-        this.hp = HP;
         this.speed = SPEED;
+        this.hp = HP;
+        this.maxHp = MAX_HP;
+        this.hpRestore = HP_RESTORE;
+        this.energy = ENERGY;
+        this.maxEnergy = MAX_ENERGY;
+        this.energyRestore = ENERGY_RESTORE;
+        this.reproductionThreshold = REPRODUCTION_THRESHOLD;
+        this.reproductionCost = REPRODUCTION_COST;
         this.isAlive = true;
     }
 
+
+
+
     @Override
-    public void makeMove(GameMap map, Coordinates current) {
-        Optional<List<Coordinates>> pathOptional = PathFinder.findPath(map, current, entity -> entity instanceof Grass);
-        if (pathOptional.isEmpty()) {
-            //TODO добавить метод, убежать от хищника
-            return;
-        }
-        List<Coordinates> path = pathOptional.get();
-        Coordinates moveTo;
-        if (path.size() >= 1 * speed) {
-            moveTo = path.get(1*speed - 1);
-        } else {
-            moveTo = path.getLast();
-        }
-        if (map.get(moveTo) instanceof Grass) {
-            this.hp = hp + 4;
-            map.remove(moveTo);
-        }
-        map.move(current, moveTo);
-
+    public void makeMove(GameMap map, Coordinates coordinates) {
+        makeMove(map, coordinates, entity -> entity instanceof Grass, entity -> entity instanceof Herbivore, Herbivore::new);
     }
-
 }
