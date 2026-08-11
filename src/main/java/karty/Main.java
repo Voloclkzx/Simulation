@@ -9,11 +9,11 @@ public class Main {
     public static void main(String[] args) {
         //TODO
         /*
-        Добавить damage в Predator
+        Добавить выбор скорости в команды
          */
-        GameMap map = new GameMap(80, 25);
+        GameMap map = new GameMap(25, 25);
         Renderer renderer = new ConsoleRenderer();
-        Simulation simulation = new Simulation(map, renderer, 100000);
+        Simulation simulation = new Simulation(map, renderer, 100, 500);
         simulation.startSimulation();
     }
 
