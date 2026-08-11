@@ -1,4 +1,4 @@
-package karty.Units;
+package karty.units;
 
 public class Entity {
     @Override

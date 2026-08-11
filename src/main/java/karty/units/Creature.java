@@ -1,6 +1,6 @@
-package karty.Units;
+package karty.units;
 
-import karty.Utils.PathFinder;
+import karty.utils.PathFinder;
 import karty.map.Coordinates;
 import karty.map.GameMap;
 
@@ -146,8 +146,8 @@ public abstract class Creature extends Entity {
     private void reproduce(GameMap map, Coordinates parentCoordinates, Creature mate, Supplier<? extends Creature> creatureFactory) {
         for (int[] shift : NEIGHBOR_SHIFTS) {
             Coordinates childCoordinates = new Coordinates(
-                    parentCoordinates.getX() + shift[0],
-                    parentCoordinates.getY() + shift[1]
+                    parentCoordinates.x() + shift[0],
+                    parentCoordinates.y() + shift[1]
             );
 
             if (map.isInside(childCoordinates) && map.isEmpty(childCoordinates)) {

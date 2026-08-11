@@ -1,6 +1,6 @@
 package karty.renderer;
 
-import karty.Units.*;
+import karty.units.*;
 import karty.map.Coordinates;
 import karty.map.GameMap;
 

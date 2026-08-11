@@ -1,4 +1,4 @@
-package karty.Units;
+package karty.units;
 
 import karty.map.Coordinates;
 import karty.map.GameMap;

@@ -1,6 +1,6 @@
 package karty.map;
 
-import karty.Units.Entity;
+import karty.units.Entity;
 
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -34,7 +34,7 @@ public class GameMap {
     }
 
     public boolean isInside(Coordinates coordinates) {
-        return (coordinates.getX() >= 1 && coordinates.getX() <= n) && (coordinates.getY() >= 1 && coordinates.getY() <= m);
+        return (coordinates.x() >= 1 && coordinates.x() <= n) && (coordinates.y() >= 1 && coordinates.y() <= m);
     }
 
     public Entity get(Coordinates coordinates) {

@@ -1,6 +1,6 @@
-package karty.Utils;
+package karty.utils;
 
-import karty.Units.Entity;
+import karty.units.Entity;
 import karty.map.Coordinates;
 import karty.map.GameMap;
 
@@ -29,7 +29,7 @@ public class PathFinder {
         while (!queue.isEmpty()) {
             Coordinates current = queue.poll();
             for (int i = 0; i < SHIFT.length; i++) {
-                Coordinates coordinates = new Coordinates(current.getX() + SHIFT[i][0], current.getY() + SHIFT[i][1]);
+                Coordinates coordinates = new Coordinates(current.x() + SHIFT[i][0], current.y() + SHIFT[i][1]);
                 if (map.isInside(coordinates) && !visited.contains(coordinates)) {
                     Entity entity = map.get(coordinates);
                     if (entity != null && targetCondition.test(entity)) {

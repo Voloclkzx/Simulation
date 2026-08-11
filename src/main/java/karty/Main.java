@@ -7,13 +7,9 @@ import karty.renderer.Renderer;
 
 public class Main {
     public static void main(String[] args) {
-        //TODO
-        /*
-        Добавить выбор скорости в команды
-         */
-        GameMap map = new GameMap(25, 25);
+        GameMap map = new GameMap(50, 20);
         Renderer renderer = new ConsoleRenderer();
-        Simulation simulation = new Simulation(map, renderer, 100, 500);
+        Simulation simulation = new Simulation(map, renderer, 1000, 500);
         simulation.startSimulation();
     }
 

@@ -1,6 +1,6 @@
-import karty.Units.Rock;
-import karty.Units.Tree;
-import karty.Utils.PathFinder;
+import karty.units.Rock;
+import karty.units.Tree;
+import karty.utils.PathFinder;
 import karty.map.Coordinates;
 import karty.map.GameMap;
 import org.junit.Assert;
@@ -8,7 +8,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 public class TestPathFinder {

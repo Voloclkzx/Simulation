@@ -1,12 +1,7 @@
-package karty.Units;
+package karty.units;
 
-import karty.Utils.PathFinder;
 import karty.map.Coordinates;
 import karty.map.GameMap;
-
-import java.util.List;
-import java.util.Optional;
-import java.util.function.Predicate;
 
 public class Predator extends Creature {
     private static final int SPEED = 1;

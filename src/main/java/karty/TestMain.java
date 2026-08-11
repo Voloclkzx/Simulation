@@ -1,11 +1,8 @@
 package karty;
 
-import karty.Units.*;
 import karty.actions.Action;
 import karty.actions.InitAction;
-import karty.map.Coordinates;
 import karty.map.GameMap;
-import karty.placement.EntityPlacer;
 import karty.renderer.ConsoleRenderer;
 import karty.renderer.Renderer;
 

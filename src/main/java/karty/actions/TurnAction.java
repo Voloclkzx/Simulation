@@ -1,7 +1,7 @@
 package karty.actions;
 
-import karty.Units.Creature;
-import karty.Units.Entity;
+import karty.units.Creature;
+import karty.units.Entity;
 import karty.map.Coordinates;
 import karty.map.EntityPosition;
 import karty.map.GameMap;

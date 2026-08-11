@@ -1,9 +1,8 @@
 package karty.actions;
 
-import karty.Units.*;
+import karty.units.*;
 import karty.map.Coordinates;
 import karty.map.GameMap;
-import karty.placement.EntityPlacer;
 
 import java.util.Collections;
 import java.util.LinkedList;
@@ -11,11 +10,11 @@ import java.util.List;
 import java.util.function.Supplier;
 
 public class InitAction implements Action {
-    private static final int GRASS_PROCENT = 10;
-    private static final int ROCK_PROCENT = 5;
-    private static final int TREE_PROCENT = 5;
-    private static final int HERBIVORE_PROCENT = 7;
-    private static final int PREDATOR_PROCENT = 5;
+    private static final int GRASS_PERCENT = 10;
+    private static final int ROCK_PERCENT = 5;
+    private static final int TREE_PERCENT = 5;
+    private static final int HERBIVORE_PERCENT = 7;
+    private static final int PREDATOR_PERCENT = 5;
 
     private GameMap map;
     private int countPlacedEntities = 0;
@@ -34,11 +33,11 @@ public class InitAction implements Action {
         }
 
         Collections.shuffle(coordinates);
-        putEntity(coordinates, Grass::new, coordinates.size()*GRASS_PROCENT/100);
-        putEntity(coordinates, Rock::new, coordinates.size()*ROCK_PROCENT/100);
-        putEntity(coordinates, Tree::new, coordinates.size()*TREE_PROCENT/100);
-        putEntity(coordinates, Herbivore::new, coordinates.size()*HERBIVORE_PROCENT/100);
-        putEntity(coordinates, Predator::new, coordinates.size()*PREDATOR_PROCENT/100);
+        putEntity(coordinates, Grass::new, coordinates.size()* GRASS_PERCENT /100);
+        putEntity(coordinates, Rock::new, coordinates.size()* ROCK_PERCENT /100);
+        putEntity(coordinates, Tree::new, coordinates.size()* TREE_PERCENT /100);
+        putEntity(coordinates, Herbivore::new, coordinates.size()* HERBIVORE_PERCENT /100);
+        putEntity(coordinates, Predator::new, coordinates.size()* PREDATOR_PERCENT /100);
 
     }
 
